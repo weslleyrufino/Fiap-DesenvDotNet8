@@ -60,7 +60,7 @@ namespace Fiap_Aula6_AutenticacaoAutorizacao.Controllers
         /// <param name="usuario"></param>
         /// <returns></returns>
         [HttpPost("CadastraUsuario")]
-        [AllowAnonymous]
+        [AllowAnonymous]// Permite qualquer usuario anonimo executar esse endpoint.
         public IActionResult CadastraUsuario(Usuario usuario)
         {
             var usuarioCadastrado = _usuarioRepository.CadastrarUsuario(usuario);

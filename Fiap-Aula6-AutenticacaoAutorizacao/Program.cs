@@ -65,7 +65,7 @@ builder.Services.AddSwaggerGen(c =>
                 Reference = new OpenApiReference
                 {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
+                    Id = "Bearer"// Aqui especifico que tenho que ter um Beare token na minha api.
                 }
             },
             Array.Empty<string>()

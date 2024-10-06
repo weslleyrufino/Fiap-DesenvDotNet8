@@ -11,7 +11,7 @@ namespace Fiap_Aula6_AutenticacaoAutorizacao.Services
     {
 
         // Configura a injeção de dependência das configurações do appSettings na nossa service
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;// Por aqui consigo recuperar do appsettings a chave do token.
         public TokenService(IConfiguration configuration) {
             _configuration = configuration;
         }
