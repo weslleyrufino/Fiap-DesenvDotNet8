@@ -10,5 +10,5 @@ Console.WriteLine($"Esse é o resultado com primary constructor: {JsonSerializer
 Console.WriteLine();
 
 //Visualizando o resultado com o construtor padrão
-var construtor = new CadastroAluno("Aluno 2");
-Console.WriteLine($"Esse é o resultado com o construtor: {JsonSerializer.Serialize(construtor)}");
+//var construtor = new CadastroAluno("Aluno 2");
+//Console.WriteLine($"Esse é o resultado com o construtor: {JsonSerializer.Serialize(construtor)}");

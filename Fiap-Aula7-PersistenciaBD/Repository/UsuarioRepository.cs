@@ -29,15 +29,15 @@ namespace Fiap_Aula7_PersistenciaBD.Repository
             //
             //return usuario;
 
-            //var comandoSql = @"INSERT INTO Usuario (Username, Password, PermissaoSistema) 
+            //var comandoSql = @"INSERT INTO Usuarios (Username, Password, PermissaoSistema) 
             //                   VALUES (@Username, @Password, @PermissaoSistema)";
 
             //var novoId = _dbConnection.Execute(comandoSql, usuario);
             //usuario.Id = novoId;
-            //
+
             //return usuario;
 
-            usuario.Id = (int)_dbConnection.Insert<Usuario>(usuario);
+            usuario.Id = (int)_dbConnection.Insert<Usuario>(usuario);// Query utilizando o Dapper.Contrib
             return usuario;
         }
 
@@ -54,7 +54,7 @@ namespace Fiap_Aula7_PersistenciaBD.Repository
             //var comandoSql = @"DELETE FROM Usuario WHERE Id = @ID";
             //_dbConnection.Execute(comandoSql, new { ID = usuarioExclusao.Id });
 
-            _dbConnection.Delete<Usuario>(usuarioExclusao);
+            _dbConnection.Delete<Usuario>(usuarioExclusao);// Query utilizando o Dapper.Contrib
 
         }
 
@@ -64,10 +64,10 @@ namespace Fiap_Aula7_PersistenciaBD.Repository
             //var usuario = ListaUsuario.Usuarios.FirstOrDefault(x => x.Id.Equals(id));
             //return usuario?.Id > 0 ? usuario : null;
 
-            //var comandoSql = @"SELECT * FROM Usuario WHERE Id = @ID";
-            //return _dbConnection.Query<Usuario>(comandoSql, new { ID = id }).SingleOrDefault();
+            //var comandoSql = @"SELECT * FROM Usuarios WHERE Id = @ID";
+            //return _dbConnection.Query<Usuario>(comandoSql, new { ID = id }).SingleOrDefault();// new { ID = id }: Estou criando um objeto anônimo. O "ID" é o que está em @ID na linha de cima.
 
-            return _dbConnection.Get<Usuario>(id);
+            return _dbConnection.Get<Usuario>(id);// Query utilizando o Dapper.Contrib
         }
 
         public IList<Usuario> RetornaUsuario()
@@ -75,10 +75,10 @@ namespace Fiap_Aula7_PersistenciaBD.Repository
             // Código antigo
             //return ListaUsuario.Usuarios;
 
-            //var comandoSql = @"SELECT * FROM Usuario";
-            //return _dbConnection.Query<Usuario>(comandoSql).ToList();
+            //var comandoSql = @"SELECT * FROM Usuarios";
+            //return _dbConnection.Query<Usuario>(comandoSql).ToList();// Query<Usuario>: Significa que os dados da base de dados serão uma lista desse objeto Usuario.
 
-            return _dbConnection.GetAll<Usuario>().ToList();
+            return _dbConnection.GetAll<Usuario>().ToList();// Query utilizando o Dapper.Contrib
         }
     }
 }

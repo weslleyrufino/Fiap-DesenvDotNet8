@@ -15,7 +15,7 @@ var configuration = new ConfigurationBuilder()
     .Build();
 
 builder.Services.AddSingleton<ITokenService, TokenService>();
-builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 //** Aqui fica a injeção da coniguração do nosso BD **//
 var stringConexao = configuration.GetValue<string>("ConnectionStringSQL");
