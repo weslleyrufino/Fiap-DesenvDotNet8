@@ -16,7 +16,7 @@ var configuration = new ConfigurationBuilder()
     .Build();
 
 builder.Services.AddSingleton<ITokenService, TokenService>();
-builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 //** Aqui fica a injeção da coniguração do nosso BD **//
 var stringConexao = configuration.GetValue<string>("ConnectionStringSQL");
@@ -52,9 +52,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Aula 7 - Persistência BD", Version = "v1" });
 
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    c.IncludeXmlComments(xmlPath);
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";// Gera o nome do arquivo .xml onde ficam as documentações.
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);// Monta o caminho desse arquivo.
+    c.IncludeXmlComments(xmlPath); // Informa para o swagger qual arquivo que ele irá ler para gerar as documentações na página.
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {

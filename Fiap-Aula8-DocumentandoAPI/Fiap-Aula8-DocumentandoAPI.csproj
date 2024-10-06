@@ -8,9 +8,17 @@
     <RootNamespace>Fiap_Aula8_DocumentandoAPI</RootNamespace>
   </PropertyGroup>
 
+<!-- 
+  É possível eu reaproveitar a estrutura de documentação <summary> dos métodos no swagger.
+  Para isso, o swagger precisa ter acesso ao XML que é gerado a pela aplicação com essas documentações.
+  Por padrão os XMLs não são gerados de forma automática.
+  Para que os arquivos xml sejam gerados corretamente, preciso adicionar o trecho abaixo de código no .csproj.
+  O código abaixo significa que é mais um grupo de propriedades indicando que os XMLs deverão ser gerados em uma propriedade que a gente precisa fazer 
+para receber esses alertas do método que tenho a documentação definida.
+--> 
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<NoWarn>$(NoWarn);1591</NoWarn>
+		<NoWarn>$(NoWarn);1591</NoWarn><!--Propriedade para não ficar retornando mensagems de alerta de documentação no visual studio.-->
 	</PropertyGroup>
 
   <ItemGroup>

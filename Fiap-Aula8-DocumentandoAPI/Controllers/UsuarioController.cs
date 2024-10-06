@@ -22,6 +22,8 @@ namespace Fiap_Aula8_DocumentandoAPI.Controllers
         /// Necessita de autenticação via token independente da Role
         /// </summary>
         /// <returns></returns>
+        /// <response code="200">Sucesso na execução ao retornar os usuários.</response>
+        /// <response code="500">Não foi possível retoranr as informações.</response>
         [HttpGet("RetornaTodosUsuarios")]
         [Authorize]
         public IActionResult RetornaTodosUsuarios()
